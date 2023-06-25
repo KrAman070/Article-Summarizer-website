@@ -75,7 +75,7 @@ const Demo = () => {
 
           <input
             type='url'
-            placeholder='Paste the article link'
+            placeholder='Paste the article link you want to summarize ☺️'
             value={article.url}
             onChange={(e) => setArticle({ ...article, url: e.target.value })}
             onKeyDown={handleKeyDown}
@@ -113,13 +113,13 @@ const Demo = () => {
         </div>
       </div>
 
-      {/* Display Result */}
+     
       <div className='my-10 max-w-full flex justify-center items-center'>
         {isFetching ? (
           <img src={loader} alt='loader' className='w-20 h-20 object-contain' />
         ) : error ? (
           <p className='font-inter font-bold text-black text-center'>
-            Well, that wasn't supposed to happen...
+            Hey, there is something wrong with the url.
             <br />
             <span className='font-satoshi font-normal text-gray-700'>
               {error?.data?.error}
@@ -127,14 +127,13 @@ const Demo = () => {
           </p>
         ) : (
           article.summary && (
-            <div className='flex flex-col gap-3'>
+            <div className='flex flex-col gap-4'>
               <h2 className='font-satoshi font-bold text-gray-600 text-xl'>
-                Article <span className='blue_gradient'>Summary</span>
+                <span className='text-orange-700'>Summary</span>
               </h2>
               <div className='summary_box'>
-                <p className='font-inter font-medium text-sm text-gray-700'>
-                  {article.summary}
-                </p>
+                 <span className='vl_gradient'>{article.summary}</span> 
+               
               </div>
             </div>
           )
